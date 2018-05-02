@@ -1,0 +1,4 @@
+ATslWeapon_Trajectory
+ATslGameState
+ATslPlayerState
+ATslCharacter

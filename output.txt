@@ -1,0 +1,628 @@
+   _____  ____   __ __ ______ ______ _   __
+  / ___/ / __ \ / //_// ____// ____// | / /
+  \__ \ / / / // ,<  / / __ / __/  /  |/ / 
+ ___/ // /_/ // /| |/ /_/ // /___ / /|  /  
+/____//_____//_/ |_|\____//_____//_/ |_/ 
+                BY RAGE
+         Generated: 2018-05-02
+         Game Version: Current
+
+
+	Handles for: ATslWeapon_Trajectory:
+		-->
+		UObject
+			-->
+			AActor
+				(1) :: Name: AttachmentReplication_AttachComponent | Type: class USceneComponent*
+				(2) :: Name: AttachmentReplication_AttachParent | Type: class AActor*
+				(3) :: Name: AttachmentReplication_AttachSocket | Type: struct FName
+				(4) :: Name: AttachmentReplication_LocationOffset | Type: struct FVector_NetQuantize100
+				(5) :: Name: AttachmentReplication_RelativeScale3D | Type: struct FVector_NetQuantize100
+				(6) :: Name: AttachmentReplication_RotationOffset | Type: struct FRotator
+				(7) :: Name: bCanBeDamaged | Type: bool
+				(8) :: Name: bHidden | Type: bool
+				(9) :: Name: bReplicateMovement | Type: bool
+				(10) :: Name: bTearOff | Type: bool
+				(11) :: Name: Instigator | Type: class APawn*
+				(12) :: Name: Owner | Type: Object
+				(13) :: Name: RemoteRole | Type: TEnumAsByte<ENetRole> <Transient>
+				(14) :: Name: ReplicatedMovement | Type: struct FRepMovement
+				(15) :: Name: Role | Type: TEnumAsByte<ENetRole>
+				-->
+				ATslWeapon
+					(16) :: Name: AttachedItemClasses | Type: TArray<class UClass*> <Transient>
+					[11] :: Name: ClientInitByReconnection **RPC**
+						| Name: bIsArmed | Type: bool 
+					(17) :: Name: MyPawn | Type: Object <Transient>
+					[13] :: Name: ServerLogFireWeapon **RPC**
+						| Name: AttackId | Type: struct FAttackId
+					(18) :: Name: SkinData_SkinTargetDatas | Type: TArray<struct FSkinTargetData>
+					-->
+					ATslWeapon_Gun
+						(19) :: Name: AmmoPerClip | Type: int <Transient>
+						(20) :: Name: bIsHipped | Type: bool <Transient>
+						[17] :: Name: BroadcastOutOfAmmo **RPC**
+						[18] :: Name: Client_StartManualFireCycle **RPC**
+						[19] :: Name: ClientCancelReload **RPC**
+						[20] :: Name: ClientNotifyAmmo **RPC**
+							| Name: InCurrentAmmoInClip | Type: int 
+						[21] :: Name: ClientNotifyOutOfAmmo **RPC**
+						[22] :: Name: ClientNotifyStopReloadByOne **RPC**
+						[23] :: Name: ClientSetFiringMode **RPC**
+							| Name: firingMode | Type: EFiringMode 
+						[24] :: Name: ClientSimulateWeaponFire **RPC**
+							| Name: ExceptTrajectoryHitResult | Type: struct FHitResult
+						[25] :: Name: ClientStopSimulatingWeaponFire **RPC**
+						(21) :: Name: CurrentAmmoInClip | Type: int <Transient>
+						(22) :: Name: CurrentZeroLevel | Type: int <Transient>
+						(23) :: Name: FiringModeIndex | Type: int <Transient>
+						[29] :: Name: Server_StartManualFireCycle **RPC**
+						[30] :: Name: ServerCancelReload **RPC**
+						[31] :: Name: ServerHandleFiring **RPC**
+							| Name: ExceptTrajectoryHitResult | Type: struct FHitResult
+						[32] :: Name: ServerSetCurrentZeroLevel **RPC**
+							| Name: ZeroLevel | Type: int 
+						[33] :: Name: ServerSetHip **RPC**
+							| Name: bNewIsHipped | Type: bool 
+						[34] :: Name: ServerStartFire **RPC**
+						[35] :: Name: ServerStartReload **RPC**
+						[36] :: Name: ServerStopFire **RPC**
+						[37] :: Name: ServerStopReload **RPC**
+						[38] :: Name: SimulateWeaponReload **RPC**
+							| Name: ReloadAnimExec | Type: EWeaponReloadAnimExec 
+						[39] :: Name: StopReloadAnimByOne **RPC**
+						-->
+						ATslWeapon_Trajectory
+							[40] :: Name: ClientWallCheckFail **RPC**
+								| Name: Impact | Type: struct FVector
+								| Name: TraceEnd | Type: struct FVector
+								| Name: TraceStart | Type: struct FVector
+							[41] :: Name: ServerLogBodyPenetration **RPC**
+								| Name: AttackId | Type: int 
+								| Name: DamageDiff | Type: float 
+								| Name: DamageZone | Type: struct FName
+							[42] :: Name: ServerNotifyAmmoSpawned **RPC**
+								| Name: AttackId | Type: struct FAttackId
+								| Name: Dir | Type: struct FVector
+								| Name: ServerStartTrace | Type: struct FVector
+							[43] :: Name: ServerNotifyCrack **RPC**
+								| Name: BulletVelocity | Type: float 
+								| Name: LocationRelative | Type: struct FVector_NetQuantize
+								| Name: TargetCharacter | Type: class ATslCharacter*
+							[44] :: Name: ServerNotifyHit **RPC**
+								| Name: AttackId | Type: struct FAttackId
+								| Name: bCallerCheck | Type: unsigned char
+								| Name: bUnder | Type: unsigned char
+								| Name: checksum_CD | Type: int 
+								| Name: ClientImpactLocation | Type: struct FVector
+								| Name: ClientOrigin | Type: struct FVector
+								| Name: HitSeq | Type: uint32_t 
+								| Name: Impact | Type: struct FHitResult
+								| Name: IV | Type: struct FVector
+								| Name: L1 | Type: struct FVector
+								| Name: L2 | Type: struct FVector
+								| Name: LC | Type: int 
+								| Name: OD | Type: struct FVector
+								| Name: Origin | Type: struct FVector
+								| Name: PreLocation | Type: struct FVector
+								| Name: r0 | Type: unsigned char
+								| Name: RelativeImpact | Type: struct FVector
+								| Name: RelLocation | Type: struct FVector
+								| Name: Segment | Type: uint16_t 
+								| Name: ShootDir | Type: struct FVector_NetQuantizeNormal
+								| Name: SI | Type: struct FVector
+								| Name: SpeedLoss | Type: float 
+								| Name: TraceStart | Type: struct FVector
+								| Name: TravelDistance | Type: float 
+								| Name: TS | Type: float 
+							[45] :: Name: ServerWallCheckTest **RPC**
+								| Name: TraceEnd | Type: struct FVector
+								| Name: TraceStart | Type: struct FVector
+							[46] :: Name: Simulate_CreateAmmoInstance **RPC**
+								| Name: AttackId | Type: struct FAttackId
+								| Name: Dir | Type: struct FVector
+								| Name: ServerStartTrace | Type: struct FVector
+							[47] :: Name: SimulateHit_Reliable **RPC**
+								| Name: Impact | Type: struct FHitResult
+								| Name: RelLocation | Type: struct FVector
+							[48] :: Name: SimulateHit_UnReliable **RPC**
+								| Name: Impact | Type: struct FHitResult
+								| Name: RelLocation | Type: struct FVector
+							[49] :: Name: SimulateUnderwaterHit **RPC**
+								| Name: ShootOrigin | Type: struct FVector
+								| Name: UnderwaterImpactPoint | Type: struct FVector
+							[50] :: Name: SimulateUnderwaterTrail **RPC**
+								| Name: ShootDirection | Type: struct FVector
+								| Name: SurfaceImpactPoint | Type: struct FVector
+								| Name: TravelDistance | Type: float 
+
+	Handles for: ATslGameState:
+		-->
+		UObject
+			-->
+			AActor
+				(1) :: Name: AttachmentReplication_AttachComponent | Type: class USceneComponent*
+				(2) :: Name: AttachmentReplication_AttachParent | Type: class AActor*
+				(3) :: Name: AttachmentReplication_AttachSocket | Type: struct FName
+				(4) :: Name: AttachmentReplication_LocationOffset | Type: struct FVector_NetQuantize100
+				(5) :: Name: AttachmentReplication_RelativeScale3D | Type: struct FVector_NetQuantize100
+				(6) :: Name: AttachmentReplication_RotationOffset | Type: struct FRotator
+				(7) :: Name: bCanBeDamaged | Type: bool
+				(8) :: Name: bHidden | Type: bool
+				(9) :: Name: bReplicateMovement | Type: bool
+				(10) :: Name: bTearOff | Type: bool
+				(11) :: Name: Instigator | Type: class APawn*
+				(12) :: Name: Owner | Type: Object
+				(13) :: Name: RemoteRole | Type: TEnumAsByte<ENetRole> <Transient>
+				(14) :: Name: ReplicatedMovement | Type: struct FRepMovement
+				(15) :: Name: Role | Type: TEnumAsByte<ENetRole>
+				-->
+				AInfo
+					-->
+					AGameStateBase
+						(16) :: Name: bReplicatedHasBegunPlay | Type: bool <Transient>
+						(17) :: Name: GameModeClass | Type: class UClass* <Transient>
+						(18) :: Name: ReplicatedWorldTimeSeconds | Type: float <Transient>
+						(19) :: Name: SpectatorClass | Type: class UClass* <Transient>
+						-->
+						AGameState
+							(20) :: Name: ElapsedTime | Type: int
+							(21) :: Name: MatchState | Type: struct FName
+							-->
+							ATslGameState
+								(22) :: Name: bCanKillerSpectate | Type: bool <Transient>
+								(23) :: Name: bCanShowLastCircleMark | Type: bool <Transient>
+								(24) :: Name: bIsCustomGame | Type: bool <Transient>
+								(25) :: Name: bIsGasRelease | Type: bool <Transient>
+								(26) :: Name: bIsTeamElimination | Type: bool <Transient>
+								(27) :: Name: bIsTeamMatch | Type: bool <Transient>
+								(28) :: Name: bIsWarMode | Type: bool <Transient>
+								(29) :: Name: bIsWinnerZombieTeam | Type: bool <Transient>
+								(30) :: Name: bIsWorkingBlueZone | Type: bool <Transient>
+								(31) :: Name: bIsZombieMode | Type: bool <Transient>
+								(32) :: Name: bShowAircraftRoute | Type: bool <Transient>
+								(33) :: Name: bShowLastCircleMark | Type: bool <Transient>
+								(34) :: Name: bTimerPaused | Type: bool <Transient>
+								(35) :: Name: bUseWarRoyaleBluezone | Type: bool <Transient>
+								(36) :: Name: bUseXboxUnauthorizedDevice | Type: bool <Transient>
+								(37) :: Name: bUsingSquadInTeam | Type: bool <Transient>
+								(38) :: Name: ElapsedReleaseDuration | Type: float <Transient>
+								(39) :: Name: ElapsedWarningDuration | Type: float <Transient>
+								(40) :: Name: GoalScore | Type: int <Transient>
+								(41) :: Name: LastCirclePosition | Type: struct FVector2D <Transient>
+								(42) :: Name: MatchElapsedMinutes | Type: int <Transient>
+								(43) :: Name: MatchElapsedTimeSec | Type: float <Transient>
+								(44) :: Name: MatchId | Type: struct FString <Transient>
+								(45) :: Name: MatchShortGuid | Type: struct FString <Transient>
+								(46) :: Name: MatchStartType | Type: EMatchStartType <Transient>
+								(47) :: Name: NextRespawnTimeSeconds | Type: float <Transient>
+								(48) :: Name: NumAlivePlayers | Type: int <Transient>
+								(49) :: Name: NumAliveTeams | Type: int <Transient>
+								(50) :: Name: NumAliveZombiePlayers | Type: int <Transient>
+								(51) :: Name: NumJoinPlayers | Type: int <Transient>
+								(52) :: Name: NumStartPlayers | Type: int <Transient>
+								(53) :: Name: NumStartTeams | Type: int <Transient>
+								(54) :: Name: NumTeams | Type: int <Transient>
+								(55) :: Name: PoisonGasWarningPosition | Type: struct FVector <Transient>
+								(56) :: Name: PoisonGasWarningRadius | Type: float <Transient>
+								(57) :: Name: RedZonePosition | Type: struct FVector <Transient>
+								(58) :: Name: RedZoneRadius | Type: float <Transient>
+								(59) :: Name: RemainingTime | Type: int <Transient>
+								(60) :: Name: SafetyZoneBeginPosition | Type: struct FVector <Transient>
+								(61) :: Name: SafetyZoneBeginRadius | Type: float <Transient>
+								(62) :: Name: SafetyZonePosition | Type: struct FVector <Transient>
+								(63) :: Name: SafetyZoneRadius | Type: float <Transient>
+								(64) :: Name: TeamIds | Type: TArray<int> <Transient>
+								(65) :: Name: TeamIndices | Type: TArray<int> <Transient>
+								(66) :: Name: TeamLeaderNames | Type: TArray<struct FString> <Transient>
+								(67) :: Name: TeamScores | Type: TArray<int> <Transient>
+								(68) :: Name: TimeLimitSeconds | Type: float <Transient>
+								(69) :: Name: TotalReleaseDuration | Type: float <Transient>
+								(70) :: Name: TotalWarningDuration | Type: float <Transient>
+
+	Handles for: ATslPlayerState:
+		-->
+		UObject
+			-->
+			AActor
+				(1) :: Name: AttachmentReplication_AttachComponent | Type: class USceneComponent*
+				(2) :: Name: AttachmentReplication_AttachParent | Type: class AActor*
+				(3) :: Name: AttachmentReplication_AttachSocket | Type: struct FName
+				(4) :: Name: AttachmentReplication_LocationOffset | Type: struct FVector_NetQuantize100
+				(5) :: Name: AttachmentReplication_RelativeScale3D | Type: struct FVector_NetQuantize100
+				(6) :: Name: AttachmentReplication_RotationOffset | Type: struct FRotator
+				(7) :: Name: bCanBeDamaged | Type: bool
+				(8) :: Name: bHidden | Type: bool
+				(9) :: Name: bReplicateMovement | Type: bool
+				(10) :: Name: bTearOff | Type: bool
+				(11) :: Name: Instigator | Type: class APawn*
+				(12) :: Name: Owner | Type: Object
+				(13) :: Name: RemoteRole | Type: TEnumAsByte<ENetRole> <Transient>
+				(14) :: Name: ReplicatedMovement | Type: struct FRepMovement
+				(15) :: Name: Role | Type: TEnumAsByte<ENetRole>
+				-->
+				AInfo
+					-->
+					APlayerState
+						(16) :: Name: bFromPreviousLevel | Type: bool
+						(17) :: Name: bIsABot | Type: bool
+						(18) :: Name: bIsInactive | Type: bool
+						(19) :: Name: bIsSpectator | Type: bool
+						(20) :: Name: bOnlySpectator | Type: bool
+						(21) :: Name: Ping | Type: unsigned char
+						(22) :: Name: PlayerId | Type: int
+						(23) :: Name: PlayerName | Type: struct FString
+						(24) :: Name: Score | Type: float
+						(25) :: Name: StartTime | Type: int
+						(26) :: Name: UniqueId | Type: struct FUniqueNetIdRepl
+						-->
+						ATslPlayerState
+							(27) :: Name: AccountId | Type: struct FString
+							(28) :: Name: bIsInAircraft | Type: bool
+							(29) :: Name: bIsZombie | Type: bool <Transient>
+							[24] :: Name: BroadcastDeath **RPC**
+								| Name: AlivePlayerNum | Type: int 
+								| Name: AliveTeamNum | Type: int 
+								| Name: DamageCauserClass | Type: class UClass*
+								| Name: DamageCauserName | Type: struct FText
+								| Name: DamageReason | Type: EDamageReason 
+								| Name: GroggyPlayerInstigator | Type: class ATslPlayerState*
+								| Name: InbIsStealKilled | Type: bool 
+								| Name: KillerDamageType | Type: class UDamageType*
+								| Name: KillerPlayerState | Type: class ATslPlayerState*
+							[25] :: Name: ClientInformAssist **RPC**
+							[26] :: Name: ClientInformFirstKill **RPC**
+							[27] :: Name: ClientTournamentData **RPC**
+							[28] :: Name: CPing **RPC**
+							(30) :: Name: CurrentAttackerPlayerNetId | Type: struct FString
+							[31] :: Name: InformAboutKill **RPC**
+								| Name: DamageCauser | Type: class AActor*
+								| Name: DamageReason | Type: EDamageReason 
+								| Name: DamageType | Type: class UDamageType*
+								| Name: Distance | Type: float 
+							(31) :: Name: LastHitTime | Type: float
+							(32) :: Name: MyGameScoreInTeam | Type: int
+							(33) :: Name: ObserverAuthorityType | Type: EObserverAuthorityType <Transient>
+							(34) :: Name: PlayerScores_ScoreByDamage | Type: float
+							(35) :: Name: PlayerScores_ScoreByKill | Type: float
+							(36) :: Name: PlayerScores_ScoreByRanking | Type: float
+							(37) :: Name: PlayerScores_ScoreFactor | Type: float
+							(38) :: Name: PlayerStatistics_NumKills | Type: int
+							(39) :: Name: PlayerStatisticsForOwner_HeadShots | Type: int
+							(40) :: Name: PlayerStatisticsForOwner_LongestDistanceKill | Type: float
+							(41) :: Name: PlayerStatisticsForOwner_TotalGivenDamages | Type: float
+							(42) :: Name: PlayerStatisticsForOwner_TotalMovedDistanceMeter | Type: float
+							(43) :: Name: Ranking | Type: int <Transient>
+							(44) :: Name: ReplicatedCastableItems | Type: TArray<struct FReplicatedCastableItem> <Transient>
+							(45) :: Name: ReplicatedEquipableItems | Type: TArray<struct FReplicatedEquipableItem> <Transient>
+							(46) :: Name: ReportToken | Type: struct FString <Transient>
+							[42] :: Name: ServerTournamentData **RPC**
+							[43] :: Name: SPing **RPC**
+							(47) :: Name: TeamNumber | Type: int <Transient>
+
+	Handles for: ATslCharacter:
+		-->
+		UObject
+			-->
+			AActor
+				(1) :: Name: AttachmentReplication_AttachComponent | Type: class USceneComponent*
+				(2) :: Name: AttachmentReplication_AttachParent | Type: class AActor*
+				(3) :: Name: AttachmentReplication_AttachSocket | Type: struct FName
+				(4) :: Name: AttachmentReplication_LocationOffset | Type: struct FVector_NetQuantize100
+				(5) :: Name: AttachmentReplication_RelativeScale3D | Type: struct FVector_NetQuantize100
+				(6) :: Name: AttachmentReplication_RotationOffset | Type: struct FRotator
+				(7) :: Name: bCanBeDamaged | Type: bool
+				(8) :: Name: bHidden | Type: bool
+				(9) :: Name: bReplicateMovement | Type: bool
+				(10) :: Name: bTearOff | Type: bool
+				(11) :: Name: Instigator | Type: class APawn*
+				(12) :: Name: Owner | Type: Object
+				(13) :: Name: RemoteRole | Type: TEnumAsByte<ENetRole> <Transient>
+				(14) :: Name: ReplicatedMovement | Type: struct FRepMovement
+				(15) :: Name: Role | Type: TEnumAsByte<ENetRole>
+				-->
+				APawn
+					(16) :: Name: Controller | Type: class AController*
+					(17) :: Name: PlayerState | Type: Object
+					(18) :: Name: RemoteViewPitch | Type: uint16_t
+					-->
+					ACharacter
+						(19) :: Name: AnimRootMotionTranslationScale | Type: float
+						(20) :: Name: bIsCrouched | Type: bool
+						[15] :: Name: ClientAckGoodMove **RPC**
+							| Name: Timestamp | Type: float 
+						[16] :: Name: ClientAdjustPosition **RPC**
+							| Name: bBaseRelativePosition | Type: bool 
+							| Name: bHasBase | Type: bool 
+							| Name: NewBase | Type: class UPrimitiveComponent*
+							| Name: NewBaseBoneName | Type: struct FName
+							| Name: NewLoc | Type: struct FVector
+							| Name: NewVel | Type: struct FVector
+							| Name: ServerMovementMode | Type: unsigned char
+							| Name: Timestamp | Type: float 
+						[17] :: Name: ClientAdjustRootMotionPosition **RPC**
+							| Name: bBaseRelativePosition | Type: bool 
+							| Name: bHasBase | Type: bool 
+							| Name: ServerBase | Type: class UPrimitiveComponent*
+							| Name: ServerBoneName | Type: struct FName
+							| Name: ServerLoc | Type: struct FVector
+							| Name: ServerMontageTrackPosition | Type: float 
+							| Name: ServerMovementMode | Type: unsigned char
+							| Name: ServerRotation | Type: struct FVector_NetQuantizeNormal
+							| Name: ServerVelZ | Type: float 
+							| Name: Timestamp | Type: float 
+						[18] :: Name: ClientAdjustRootMotionSourcePosition **RPC**
+							| Name: bBaseRelativePosition | Type: bool 
+							| Name: bHasAnimRootMotion | Type: bool 
+							| Name: bHasBase | Type: bool 
+							| Name: ServerBase | Type: class UPrimitiveComponent*
+							| Name: ServerBoneName | Type: struct FName
+							| Name: ServerLoc | Type: struct FVector
+							| Name: ServerMontageTrackPosition | Type: float 
+							| Name: ServerMovementMode | Type: unsigned char
+							| Name: ServerRootMotion | Type: struct FRootMotionSourceGroup
+							| Name: ServerRotation | Type: struct FVector_NetQuantizeNormal
+							| Name: ServerVelZ | Type: float 
+							| Name: Timestamp | Type: float 
+						[19] :: Name: ClientCheatFly **RPC**
+						[20] :: Name: ClientCheatGhost **RPC**
+						[21] :: Name: ClientCheatWalk **RPC**
+						[22] :: Name: ClientVeryShortAdjustPosition **RPC**
+							| Name: bBaseRelativePosition | Type: bool 
+							| Name: bHasBase | Type: bool 
+							| Name: NewBase | Type: class UPrimitiveComponent*
+							| Name: NewBaseBoneName | Type: struct FName
+							| Name: NewLoc | Type: struct FVector
+							| Name: ServerMovementMode | Type: unsigned char
+							| Name: Timestamp | Type: float 
+						(21) :: Name: JumpMaxCount | Type: int
+						(22) :: Name: JumpMaxHoldTime | Type: float
+						(23) :: Name: ReplicatedBasedMovement_BoneName | Type: struct FName
+						(24) :: Name: ReplicatedBasedMovement_bRelativeRotation | Type: bool
+						(25) :: Name: ReplicatedBasedMovement_bServerHasBaseComponent | Type: bool
+						(26) :: Name: ReplicatedBasedMovement_bServerHasVelocity | Type: bool
+						(27) :: Name: ReplicatedBasedMovement_Location | Type: struct FVector_NetQuantize100
+						(28) :: Name: ReplicatedBasedMovement_MovementBase | Type: class UPrimitiveComponent*
+						(29) :: Name: ReplicatedBasedMovement_Rotation | Type: struct FRotator
+						(30) :: Name: ReplicatedMovementMode | Type: unsigned char
+						(31) :: Name: ReplicatedServerLastTransformUpdateTimeStamp | Type: float
+						(32) :: Name: RepRootMotion_Acceleration | Type: struct FVector_NetQuantize10
+						(33) :: Name: RepRootMotion_AnimMontage | Type: class UAnimMontage*
+						(34) :: Name: RepRootMotion_AuthoritativeRootMotion | Type: struct FRootMotionSourceGroup
+						(35) :: Name: RepRootMotion_bIsActive | Type: bool
+						(36) :: Name: RepRootMotion_bRelativePosition | Type: bool
+						(37) :: Name: RepRootMotion_bRelativeRotation | Type: bool
+						(38) :: Name: RepRootMotion_LinearVelocity | Type: struct FVector_NetQuantize10
+						(39) :: Name: RepRootMotion_Location | Type: struct FVector_NetQuantize100
+						(40) :: Name: RepRootMotion_MovementBase | Type: class UPrimitiveComponent*
+						(41) :: Name: RepRootMotion_MovementBaseBoneName | Type: struct FName
+						(42) :: Name: RepRootMotion_Position | Type: float
+						(43) :: Name: RepRootMotion_Rotation | Type: struct FRotator
+						[29] :: Name: ServerMove **RPC**
+							| Name: ClientBaseBoneName | Type: struct FName
+							| Name: ClientLoc | Type: struct FVector_NetQuantize100
+							| Name: ClientMovementBase | Type: class UPrimitiveComponent*
+							| Name: ClientMovementMode | Type: unsigned char
+							| Name: ClientRoll | Type: unsigned char
+							| Name: CompressedMoveFlags | Type: unsigned char
+							| Name: InAccel | Type: struct FVector_NetQuantize10
+							| Name: Timestamp | Type: float 
+							| Name: View | Type: uint32_t 
+						[30] :: Name: ServerMoveDual **RPC**
+							| Name: ClientBaseBoneName | Type: struct FName
+							| Name: ClientLoc | Type: struct FVector_NetQuantize100
+							| Name: ClientMovementBase | Type: class UPrimitiveComponent*
+							| Name: ClientMovementMode | Type: unsigned char
+							| Name: ClientRoll | Type: unsigned char
+							| Name: InAccel | Type: struct FVector_NetQuantize10
+							| Name: InAccel0 | Type: struct FVector_NetQuantize10
+							| Name: NewFlags | Type: unsigned char
+							| Name: PendingFlags | Type: unsigned char
+							| Name: Timestamp | Type: float 
+							| Name: TimeStamp0 | Type: float 
+							| Name: View | Type: uint32_t 
+							| Name: View0 | Type: uint32_t 
+						[31] :: Name: ServerMoveDualHybridRootMotion **RPC**
+							| Name: ClientBaseBoneName | Type: struct FName
+							| Name: ClientLoc | Type: struct FVector_NetQuantize100
+							| Name: ClientMovementBase | Type: class UPrimitiveComponent*
+							| Name: ClientMovementMode | Type: unsigned char
+							| Name: ClientRoll | Type: unsigned char
+							| Name: InAccel | Type: struct FVector_NetQuantize10
+							| Name: InAccel0 | Type: struct FVector_NetQuantize10
+							| Name: NewFlags | Type: unsigned char
+							| Name: PendingFlags | Type: unsigned char
+							| Name: Timestamp | Type: float 
+							| Name: TimeStamp0 | Type: float 
+							| Name: View | Type: uint32_t 
+							| Name: View0 | Type: uint32_t 
+						[32] :: Name: ServerMoveDualNoBase **RPC**
+							| Name: ClientLoc | Type: struct FVector_NetQuantize100
+							| Name: ClientMovementMode | Type: unsigned char
+							| Name: ClientRoll | Type: unsigned char
+							| Name: InAccel | Type: struct FVector_NetQuantize10
+							| Name: InAccel0 | Type: struct FVector_NetQuantize10
+							| Name: NewFlags | Type: unsigned char
+							| Name: PendingFlags | Type: unsigned char
+							| Name: Timestamp | Type: float 
+							| Name: TimeStamp0 | Type: float 
+							| Name: View | Type: uint32_t 
+							| Name: View0 | Type: uint32_t 
+						[33] :: Name: ServerMoveNoBase **RPC**
+							| Name: ClientLoc | Type: struct FVector_NetQuantize100
+							| Name: ClientMovementMode | Type: unsigned char
+							| Name: ClientRoll | Type: unsigned char
+							| Name: CompressedMoveFlags | Type: unsigned char
+							| Name: InAccel | Type: struct FVector_NetQuantize10
+							| Name: Timestamp | Type: float 
+							| Name: View | Type: uint32_t 
+						[34] :: Name: ServerMoveOld **RPC**
+							| Name: OldAccel | Type: struct FVector_NetQuantize10
+							| Name: OldMoveFlags | Type: unsigned char
+							| Name: OldTimeStamp | Type: float 
+						-->
+						AMutableCharacter
+							(44) :: Name: InstanceDescriptor | Type: TArray<unsigned char>
+							-->
+							ATslCharacter
+								(45) :: Name: AimOffsets | Type: struct FVector_NetQuantizeNormal <Transient>
+								(46) :: Name: bAimStateActive | Type: bool
+								(47) :: Name: bIsActiveRagdollActive | Type: bool
+								(48) :: Name: bIsAimingRemote | Type: bool <Transient>
+								(49) :: Name: bIsCoatEquipped | Type: bool <Transient>
+								(50) :: Name: bIsDemoVaulting_CP | Type: bool <Transient>
+								(51) :: Name: bIsFirstPersonRemote | Type: bool <Transient>
+								(52) :: Name: bIsGroggying | Type: bool
+								(53) :: Name: bIsHoldingBreath | Type: bool
+								(54) :: Name: bIsInVehicleRemote | Type: bool <Transient>
+								(55) :: Name: bIsPeekLeft | Type: bool <Transient>
+								(56) :: Name: bIsPeekRight | Type: bool <Transient>
+								(57) :: Name: bIsReviving | Type: bool <Transient>
+								(58) :: Name: bIsScopingRemote | Type: bool <Transient>
+								(59) :: Name: bIsThirdPerson | Type: bool <Transient>
+								(60) :: Name: bIsThrowHigh | Type: bool <Transient>
+								(61) :: Name: bIsWeaponObstructed | Type: bool <Transient>
+								(62) :: Name: bIsZombie | Type: bool <Transient>
+								(63) :: Name: BoostGauge | Type: float
+								(64) :: Name: BoostGaugeMax | Type: float
+								(65) :: Name: bServerFinishedVault | Type: bool
+								(66) :: Name: BuffFinalSpreadFactor | Type: float <Transient>
+								(67) :: Name: bUseRightShoulderAiming | Type: bool <Transient>
+								(68) :: Name: bWantsToCancelVault | Type: bool
+								(69) :: Name: bWantsToRollingLeft | Type: bool <Transient>
+								(70) :: Name: bWantsToRollingRight | Type: bool <Transient>
+								(71) :: Name: bWantsToRun | Type: bool <Transient>
+								(72) :: Name: bWantsToSprint | Type: bool <Transient>
+								(73) :: Name: bWantsToSprintingAuto | Type: bool <Transient>
+								(74) :: Name: CharacterState | Type: unsigned char <Transient>
+								[66] :: Name: Client_CastCancelNotify **RPC**
+								[67] :: Name: Client_CastFinishNotify **RPC**
+								[68] :: Name: Client_PlayUnarmedAttack **RPC**
+									| Name: AnimationIndex | Type: int 
+								[69] :: Name: ClientDrawDamageInfo **RPC**
+									| Name: Damage | Type: float 
+									| Name: DamageType | Type: class UTslDamageType*
+								[70] :: Name: ClientForceInitStance **RPC**
+								[71] :: Name: ClientMyCharacterPlayPickUpAnimation **RPC**
+									| Name: Duration | Type: float 
+									| Name: InteractionObject | Type: struct FVector_NetQuantize
+								[72] :: Name: ClientNotifyCrack **RPC**
+									| Name: BulletVelocity | Type: float 
+									| Name: LocationRelative | Type: struct FVector_NetQuantize
+								[73] :: Name: ClientPlayPickUpAnimation **RPC**
+									| Name: InteractionObject | Type: struct FVector_NetQuantize
+								[74] :: Name: ClientProcessRevive **RPC**
+									| Name: RemainGroggyHealth | Type: float 
+								[75] :: Name: ClientRevivedCastingWidgetShow **RPC**
+									| Name: bVisible | Type: bool 
+								[76] :: Name: ClientSendGroggyMessage **RPC**
+									| Name: DamageCauserClass | Type: class UClass*
+									| Name: DamageCauserName | Type: struct FText
+									| Name: DamageReason | Type: EDamageReason 
+									| Name: GroggyCauserDamageType | Type: class UDamageType*
+									| Name: GroggyCauserPlayerState | Type: class ATslPlayerState*
+									| Name: VictimPlayerState | Type: class ATslPlayerState*
+								[77] :: Name: ClientSetTargeting **RPC**
+									| Name: NewTargetingType | Type: ETargetingType 
+								[78] :: Name: ClientSimulationArmorDestruction **RPC**
+									| Name: Impact | Type: struct FTransform
+									| Name: SlotID | Type: EEquipSlotID 
+								[79] :: Name: ClientSoundPlay **RPC**
+									| Name: SoundAk | Type: class UAkAudioEvent*
+								[80] :: Name: ClientSoundPlayMulticast **RPC**
+									| Name: SoundAk | Type: class UAkAudioEvent*
+								(75) :: Name: CurrentWeaponZoomLevel | Type: unsigned char <Transient>
+								(76) :: Name: GroggyHealth | Type: float
+								(77) :: Name: GroggyHealthMax | Type: float
+								(78) :: Name: GunDirectionSway | Type: struct FRotator <Transient>
+								(79) :: Name: Health | Type: float
+								(80) :: Name: HealthMax | Type: float
+								(81) :: Name: IgnoreRotation | Type: bool <Transient>
+								(82) :: Name: InventoryFacade | Type: Object <Transient>
+								(83) :: Name: LastTakeHitInfo_ActualDamage | Type: float
+								(84) :: Name: LastTakeHitInfo_AttackerLocation | Type: struct FVector
+								(85) :: Name: LastTakeHitInfo_AttackerWeaponName | Type: struct FName
+								(86) :: Name: LastTakeHitInfo_bKilled | Type: bool
+								(87) :: Name: LastTakeHitInfo_BoneName | Type: struct FName
+								(88) :: Name: LastTakeHitInfo_bPointDamage | Type: bool
+								(89) :: Name: LastTakeHitInfo_bRadialDamage | Type: bool
+								(90) :: Name: LastTakeHitInfo_DamageMaxRadius | Type: float
+								(91) :: Name: LastTakeHitInfo_DamageOrigin | Type: struct FVector_NetQuantize
+								(92) :: Name: LastTakeHitInfo_DamageType | Type: class UClass*
+								(93) :: Name: LastTakeHitInfo_EnsureReplicationByte | Type: unsigned char
+								(94) :: Name: LastTakeHitInfo_PlayerInstigator | Type: TWeakObjectPtr<class ATslPlayerState>
+								(95) :: Name: LastTakeHitInfo_RelHitLocation | Type: struct FVector_NetQuantize
+								(96) :: Name: LastTakeHitInfo_ShotDirPitch | Type: unsigned char
+								(97) :: Name: LastTakeHitInfo_ShotDirYaw | Type: unsigned char
+								(98) :: Name: NetOwnerController | Type: Object <Transient>
+								(99) :: Name: PreReplicatedStanceMode | Type: TEnumAsByte<EStanceMode>
+								(100) :: Name: Remote_CastAnim | Type: ECastAnim <Transient>
+								[93] :: Name: RemoveParachute **RPC**
+								(101) :: Name: ReviveCastingTime | Type: float <Transient>
+								[95] :: Name: Server_CastCancelNotify **RPC**
+								[96] :: Name: Server_CastFinishNotify **RPC**
+								[97] :: Name: Server_CastStartNotify **RPC**
+									| Name: CastObject | Type: class UObject*
+								[98] :: Name: Server_PlayUnarmedAttack **RPC**
+									| Name: AnimationIndex | Type: int 
+								[99] :: Name: Server_SetAimState **RPC**
+									| Name: IsActive | Type: bool 
+								[100] :: Name: Server_SetCanGroggyDamage **RPC**
+									| Name: bInCanGroggyDamage | Type: bool 
+								[101] :: Name: Server_SetCastAnim **RPC**
+									| Name: InCastAnim | Type: ECastAnim 
+								[102] :: Name: Server_SetCoatEquipped **RPC**
+									| Name: IsEquipped | Type: bool 
+								[103] :: Name: Server_SetFiringMode **RPC**
+									| Name: fMode | Type: EFiringMode 
+								[104] :: Name: Server_SetParachuteLandingAssist **RPC**
+									| Name: bAssistActive | Type: bool 
+								[105] :: Name: Server_SetThrowMode **RPC**
+									| Name: bNewVal | Type: bool 
+								[106] :: Name: Server_SetVaultCancel **RPC**
+									| Name: InCancel | Type: bool 
+								[107] :: Name: Server_SetWeaponObstruction **RPC**
+									| Name: bNewObstruction | Type: bool 
+								[108] :: Name: Server_UnarmedHitNotify **RPC**
+									| Name: checksum | Type: int 
+									| Name: checksum_CD | Type: int 
+									| Name: Hit | Type: struct FHitResult
+									| Name: HitSeq | Type: uint32_t 
+									| Name: Location | Type: struct FVector
+								[109] :: Name: ServerBroadCastAimingRemote **RPC**
+									| Name: InbIsAming | Type: bool 
+								[110] :: Name: ServerSetAimOffsets **RPC**
+									| Name: NewAimOffsets | Type: struct FVector_NetQuantizeNormal
+								[111] :: Name: ServerSetCurrentWeaponZoomLevel **RPC**
+									| Name: ZoomLevel | Type: unsigned char
+								[112] :: Name: ServerSetGunDirectionSway **RPC**
+									| Name: InGunDirectionSway | Type: struct FRotator
+								[113] :: Name: ServerSetHoldingBreath **RPC**
+									| Name: bNewHoldingBreath | Type: bool 
+								[114] :: Name: ServerSetPeekLeft **RPC**
+									| Name: bNewPeekLeft | Type: bool 
+									| Name: InbUseRightShoulderAiming | Type: bool 
+								[115] :: Name: ServerSetPeekRight **RPC**
+									| Name: bNewPeekRight | Type: bool 
+									| Name: InbUseRightShoulderAiming | Type: bool 
+								[116] :: Name: ServerSetRolling **RPC**
+									| Name: bIsLeft | Type: bool 
+									| Name: bNewRolling | Type: bool 
+								[117] :: Name: ServerSetRunning **RPC**
+									| Name: bNewRunning | Type: bool 
+								[118] :: Name: ServerSetSprinting **RPC**
+									| Name: bNewSprinting | Type: bool 
+								[119] :: Name: ServerSetSprintingAuto **RPC**
+									| Name: bNewSprintingAuto | Type: bool 
+								[120] :: Name: ServerSetTargeting **RPC**
+									| Name: NewTargetingType | Type: ETargetingType 
+								[121] :: Name: ServerTestSkinLoad **RPC**
+								(102) :: Name: ShoesSoundType | Type: EEquipableItemSoundType <Transient>
+								[123] :: Name: SpawnPunchImpact_Reliable **RPC**
+									| Name: InLocation | Type: struct FVector
+									| Name: InRotation | Type: struct FRotator
+								(103) :: Name: SpectatedCount | Type: int <Transient>
+								(104) :: Name: TargetingType | Type: ETargetingType <Transient>
+								(105) :: Name: Team | Type: Object <Transient>
+								(106) :: Name: VehicleRiderComponent | Type: class UVehicleRiderComponent*
+								(107) :: Name: WeaponProcessor | Type: class AWeaponProcessor* <Transient>

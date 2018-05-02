@@ -1,0 +1,99 @@
+Handles for: ATslWeapon_Trajectory:
+		-->
+		UObject
+			-->
+			AActor
+				(1) :: Name: AttachmentReplication_AttachComponent | Type: class USceneComponent*
+				(2) :: Name: AttachmentReplication_AttachParent | Type: class AActor*
+				(3) :: Name: AttachmentReplication_AttachSocket | Type: struct FName
+				(4) :: Name: AttachmentReplication_LocationOffset | Type: struct FVector_NetQuantize100
+				(5) :: Name: AttachmentReplication_RelativeScale3D | Type: struct FVector_NetQuantize100
+				(6) :: Name: AttachmentReplication_RotationOffset | Type: struct FRotator
+				(7) :: Name: bCanBeDamaged | Type: bool
+				(8) :: Name: bHidden | Type: bool
+				(9) :: Name: bReplicateMovement | Type: bool
+				(10) :: Name: bTearOff | Type: bool
+				(11) :: Name: Instigator | Type: class APawn*
+				(12) :: Name: Owner | Type: Object
+				(13) :: Name: RemoteRole | Type: TEnumAsByte<ENetRole> <Transient>
+				(14) :: Name: ReplicatedMovement | Type: struct FRepMovement
+				(15) :: Name: Role | Type: TEnumAsByte<ENetRole>
+				-->
+				ATslWeapon
+					(16) :: Name: AttachedItemClasses | Type: TArray<class UClass*> <Transient>
+					(17) :: Name: MyPawn | Type: Object <Transient>
+					[12] :: Name: ServerLogFireWeapon **RPC**
+						| Name: AttackId | Type: struct FAttackId
+					(18) :: Name: SkinData_SkinTargetDatas | Type: TArray<struct FSkinTargetData>
+					-->
+					ATslWeapon_Gun
+						(19) :: Name: AmmoPerClip | Type: int <Transient>
+						(20) :: Name: bIsHipped | Type: bool <Transient>
+						[16] :: Name: BroadcastOutOfAmmo **RPC**
+						[17] :: Name: Client_StartManualFireCycle **RPC**
+						[18] :: Name: ClientCancelReload **RPC**
+						[19] :: Name: ClientNotifyAmmo **RPC**
+							| Name: InCurrentAmmoInClip | Type: int 
+						[20] :: Name: ClientNotifyOutOfAmmo **RPC**
+						[21] :: Name: ClientNotifyStopReloadByOne **RPC**
+						[22] :: Name: ClientSetFiringMode **RPC**
+							| Name: firingMode | Type: EFiringMode 
+						[23] :: Name: ClientSimulateWeaponFire **RPC**
+							| Name: ExceptTrajectoryHitResult | Type: struct FHitResult
+						[24] :: Name: ClientStopSimulatingWeaponFire **RPC**
+						(21) :: Name: CurrentAmmoInClip | Type: int <Transient>
+						(22) :: Name: CurrentZeroLevel | Type: int <Transient>
+						(23) :: Name: FiringModeIndex | Type: int <Transient>
+						[28] :: Name: Server_StartManualFireCycle **RPC**
+						[29] :: Name: ServerCancelReload **RPC**
+						[30] :: Name: ServerHandleFiring **RPC**
+							| Name: ExceptTrajectoryHitResult | Type: struct FHitResult
+						[31] :: Name: ServerSetCurrentZeroLevel **RPC**
+							| Name: ZeroLevel | Type: int 
+						[32] :: Name: ServerSetHip **RPC**
+							| Name: bNewIsHipped | Type: bool 
+						[33] :: Name: ServerStartFire **RPC**
+						[34] :: Name: ServerStartReload **RPC**
+						[35] :: Name: ServerStopFire **RPC**
+						[36] :: Name: ServerStopReload **RPC**
+						[37] :: Name: SimulateWeaponReload **RPC**
+							| Name: ReloadAnimExec | Type: EWeaponReloadAnimExec 
+						[38] :: Name: StopReloadAnimByOne **RPC**
+						-->
+						ATslWeapon_Trajectory
+							[39] :: Name: ClientWallCheckFail **RPC**
+								| Name: Impact | Type: struct FVector
+								| Name: TraceEnd | Type: struct FVector
+								| Name: TraceStart | Type: struct FVector
+							[40] :: Name: ServerLogBodyPenetration **RPC**
+								| Name: AttackId | Type: int 
+								| Name: DamageDiff | Type: float 
+								| Name: DamageZone | Type: struct FName
+							[41] :: Name: ServerNotifyAmmoSpawned **RPC**
+								| Name: AttackId | Type: struct FAttackId
+								| Name: Dir | Type: struct FVector
+								| Name: ServerStartTrace | Type: struct FVector
+							[42] :: Name: ServerNotifyCrack **RPC**
+								| Name: BulletVelocity | Type: float 
+								| Name: LocationRelative | Type: struct FVector_NetQuantize
+								| Name: TargetCharacter | Type: class ATslCharacter*
+							[43] :: Name: ServerWallCheckTest **RPC**
+								| Name: TraceEnd | Type: struct FVector
+								| Name: TraceStart | Type: struct FVector
+							[44] :: Name: Simulate_CreateAmmoInstance **RPC**
+								| Name: AttackId | Type: struct FAttackId
+								| Name: Dir | Type: struct FVector
+								| Name: ServerStartTrace | Type: struct FVector
+							[45] :: Name: SimulateHit_Reliable **RPC**
+								| Name: Impact | Type: struct FHitResult
+								| Name: RelLocation | Type: struct FVector
+							[46] :: Name: SimulateHit_UnReliable **RPC**
+								| Name: Impact | Type: struct FHitResult
+								| Name: RelLocation | Type: struct FVector
+							[47] :: Name: SimulateUnderwaterHit **RPC**
+								| Name: ShootOrigin | Type: struct FVector
+								| Name: UnderwaterImpactPoint | Type: struct FVector
+							[48] :: Name: SimulateUnderwaterTrail **RPC**
+								| Name: ShootDirection | Type: struct FVector
+								| Name: SurfaceImpactPoint | Type: struct FVector
+								| Name: TravelDistance | Type: float 
