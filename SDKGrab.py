@@ -8,9 +8,8 @@ pattern = "class\\s*([a-zA-Z_0-9]+)\\s*:\\s*public\\s*([a-zA-Z_0-9]+)[\\s\\r\\n]
 fieldPattern = "([^\\r\\n]*?)\\s*([a-zA-Z_0-9]+(?:\\s*[:]\\s*[0-9]+\\s*)?);\\s*//([^\\r\\n]*)"
 structPattern = "struct\\s([A-Za-z0-9]*)\\n{\\n([\\t\\s*a-zA-Z_0-9;<>:/(),\[\]]+)};"
 findFunc = "//\s\w*\s(\w*.\w*.\w*)\n//\s([\(\),\w\s]*)"
-functionPattern = "//\sFunction\s(.*)\n//\s(.*)\n//\sParameters:\n([A-Za-z\/\s:\(\),_<>0-9*]+)\n\n"
 functionPattern2 = "//\sFunction\s(.*)\n//\s(.*)\n(?://\sParameters:\n([A-Za-z\/\s:\(\),_<>0-9*]+)\n\n)?"
-rpcPattern = "//\\s(\\w*\\s\\w*\**)\\s*(\\w*)"
+rpcPattern = "//\s(\w*[<\w*>]*\s\w*\**)\s*(\w*)"
 structFiles = ["PUBG_Engine_structs.hpp", "PUBG_TslGame_structs.hpp"]
 classFiles = ["PUBG_Engine_classes.hpp", "PUBG_TslGame_classes.hpp"]
 funcFiles = ["PUBG_Engine_functions.cpp", "PUBG_TslGame_functions.cpp"]
@@ -38,7 +37,7 @@ class NetFunction:
         self.name = name
         self.type = type1
         self.parent = parent
-        self.fields = {}
+        self.fields = []
 
 # we need to handle structs, so... detect if we are looking at the structs file, and use those regex? Then I guess add them to the netClass and NetField as per-normal.
 
@@ -121,7 +120,7 @@ def readFunctions(folder, classes, funcs): #Process Functions
                             for prop in props:
                                 pType = prop[0]
                                 pName = prop[1]
-                                f.fields[pName] = NetField(pName, pType, False)
+                                f.fields.append(NetField(pName, pType, False))
                         try:
                             classes[cls].rpcs[name] = f
                         except KeyError:
@@ -237,8 +236,8 @@ def displayProps(fileName, classes, output):
                             lne = "\t" * i + "\t\t\t[{1}] :: Name: {0} **RPC**".format(name, r)
                             writeLine(lne, output)
                             print(lne)
-                            for j in sorted(f.fields, key=str.lower):
-                                prop = f.fields[j]
+                            for j in f.fields:
+                                prop = j
                                 lne = "\t" * i + "\t\t\t\t| Name: {0} | Type: {1}".format(prop.name, prop.type, r)
                                 writeLine(lne, output)
                                 print(lne)
